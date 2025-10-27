@@ -11,15 +11,15 @@ Python project that parses Brazilian NFC-e (consumer electronic invoices) from a
 
 ### Setup
 1. Clone the repository
-```bash
-git clone https://github.com/yourusername/nfce-notion.git
-cd nfce-notion
-```
+    ```bash
+    git clone https://github.com/yourusername/nfce-notion.git
+    cd nfce-notion
+    ```
 2. Create and setup your Virtual Environment
-```bash
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # Windows: .venv\Scripts\activate
+    pip install -r requirements.txt
+    ```
 3. Configure .ENV with Notion info
 4. Run
