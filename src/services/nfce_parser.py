@@ -25,9 +25,6 @@ class NfceParser:
         )
 
     def _fetch_and_parse(self, url: str) -> Dict[str, Any]:
-        """
-        Faz a requisição HTTP, processa o HTML e retorna um dicionário com os dados.
-        """
         response = self.session.get(url, timeout=10)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "lxml")
