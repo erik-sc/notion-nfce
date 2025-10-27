@@ -13,7 +13,7 @@ class NotionService:
         database_id = os.getenv("NOTION_DATABASE_ID")
 
         if not token or not database_id:
-            raise ValueError("NOTION_TOKEN e NOTION_DATABASE_ID devem estar definidos no .env")
+            raise ValueError("NOTION_TOKEN e NOTION_DATABASE_ID must be defined in .env")
 
         self.client = Client(auth=token)
         self.database_id = database_id

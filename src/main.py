@@ -10,6 +10,6 @@ qr = capture_qr()
 if qr:
     dados_nf = parser.parse_to_receipt(qr)
     notion.add_receipt(dados_nf)
-    print("Nota adicionada no Notion!")
+    print("Invoice data created in Notion successfully.")
 else:
-    print("Nenhum QR Code detectado.")
+    print("No QR Code detected.")
