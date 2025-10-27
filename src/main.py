@@ -7,18 +7,11 @@ from services.invoice_classifier import InvoiceClassifier
 
 load_dotenv()
 
-invoiceClassifier = InvoiceClassifier(LLMClient(), tags=[
-    "Alimentação",
-    "Eletrônicos",
-    "Roupas",
-    "Saúde",
-    "Entretenimento",
-    "Outros"
-])
-
 parser = NfceParser()
 notion = Notion()
 qr = capture_qr()
+
+invoiceClassifier = InvoiceClassifier(LLMClient(), tags=notion.get_receipt_tags())
 
 if qr:
     dados_nf = parser.parse_to_receipt(qr)

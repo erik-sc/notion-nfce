@@ -18,6 +18,14 @@ class Notion:
         self.client = Client(auth=token)
         self.database_id = database_id
 
+    def get_receipt_tags(self):
+        database = self.client.databases.retrieve(self.database_id)
+        datasource = self.client.data_sources.retrieve(database['data_sources'][0]['id'])
+        tags_property = datasource['properties'].get("Categoria")
+        if not tags_property or tags_property["type"] != "select":
+            return []
+
+        return [option["name"] for option in tags_property["select"]["options"]]
 
     def add_receipt(self, receipt: Receipt):
         print("Adding receipt to Notion:")
