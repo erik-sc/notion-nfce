@@ -5,7 +5,7 @@ from notion_client import Client
 from models.receipt import Receipt, ReceiptItem
 
 
-class NotionService:
+class Notion:
 
     def __init__(self):
         load_dotenv()
@@ -20,6 +20,8 @@ class NotionService:
 
 
     def add_receipt(self, receipt: Receipt):
+        print("Adding receipt to Notion:")
+        print(receipt)
         page = self.client.pages.create(
             parent={"database_id": self.database_id},
             properties={
@@ -28,6 +30,7 @@ class NotionService:
                 "Data de Emissão": {"date": {"start": self._format_date(receipt.data_emissao)}},
                 "Quantidade": {"number": int(receipt.qtd_itens)},
                 "Valor": {"number": self._parse_float(receipt.valor_total)},
+                "Essencialidade": {"number": receipt.essencialidade},
             },
         )
 
@@ -45,6 +48,7 @@ class NotionService:
                 "Quantidade": {"number": self._parse_float(item.quantidade)},
                 "Valor Unitário": {"number": self._parse_float(item.valor_unitario)},
                 "Valor": {"number": self._parse_float(item.valor_total)},
+                "Categoria": {"select": {"name": item.categoria}},
             },
         )
 

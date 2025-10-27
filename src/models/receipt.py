@@ -7,6 +7,7 @@ class ReceiptItem:
     quantidade: str
     valor_unitario: str
     valor_total: str
+    categoria: str = ""
 
 @dataclass
 class Receipt:
@@ -16,3 +17,4 @@ class Receipt:
     qtd_itens: str
     valor_total: str
     itens: List[ReceiptItem]
+    essencialidade: float = 0.0
