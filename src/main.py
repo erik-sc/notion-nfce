@@ -4,6 +4,7 @@ from services.notion_service import Notion
 from services.nfce_parser import NfceParser
 from services.llm_client import LLMClient
 from services.invoice_classifier import InvoiceClassifier
+from models.receipt import Receipt
 
 load_dotenv()
 

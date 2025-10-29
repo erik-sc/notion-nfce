@@ -1,7 +1,6 @@
 import os
 from google import genai
 
-
 class LLMClient:
 
     def __init__(self):
@@ -15,5 +14,4 @@ class LLMClient:
             model=self.model,
             contents=prompt,
         )
-        print(response)
         return response.text.strip()

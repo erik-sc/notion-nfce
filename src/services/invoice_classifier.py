@@ -4,6 +4,7 @@ from typing import List
 
 from services.llm_client import LLMClient
 from prompts.invoice_prompts import BULK_CATEGORY_PROMPT, ESSENTIALITY_PROMPT
+from models.receipt import Receipt
 
 
 class InvoiceClassifier:
@@ -12,7 +13,7 @@ class InvoiceClassifier:
         self.llm = llm_client
         self.tags = tags
 
-    def classify(self, receipt) -> None:
+    def classify(self, receipt) -> Receipt:
         classified_receipt = copy(receipt)
         item_names = [item.descricao for item in receipt.itens]
         
