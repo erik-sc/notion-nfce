@@ -16,6 +16,7 @@ class NfceParser:
         items = [ReceiptItem(**item) for item in raw_data.get("itens", [])]
 
         return Receipt(
+            url=url,
             emitente=raw_data.get("emitente", ""),
             cnpj=raw_data.get("cnpj", ""),
             data_emissao=raw_data.get("data_emissao", ""),

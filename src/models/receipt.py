@@ -17,4 +17,5 @@ class Receipt:
     qtd_itens: str
     valor_total: str
     itens: List[ReceiptItem]
+    url: str
     essencialidade: float = 0.0
