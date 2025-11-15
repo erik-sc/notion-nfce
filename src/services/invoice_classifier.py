@@ -21,8 +21,6 @@ class InvoiceClassifier:
         for item in classified_receipt.itens:
             item.categoria = item_categories_map.get(item.descricao, "Outros")
 
-        classified_receipt.essencialidade = self.get_essentiality(item_names)
-
         return classified_receipt
 
     def get_category_bulk(self, item_list: List[str]) -> dict:

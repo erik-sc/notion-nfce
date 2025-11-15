@@ -38,7 +38,6 @@ class Notion:
                 "Data de Emissão": {"date": {"start": self._format_date(receipt.data_emissao)}},
                 "Quantidade": {"number": int(receipt.qtd_itens)},
                 "Valor": {"number": self._parse_float(receipt.valor_total)},
-                "Essencialidade": {"number": receipt.essencialidade},
                 "URL": {"url": receipt.url}
             },
         )
